@@ -1,0 +1,20 @@
+{
+  "name": "base_nodejs_project_template",
+  "version": "1.0.0",
+  "description": "a starter boiler plate code for node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Hardik Mehta",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http-status-codes": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
