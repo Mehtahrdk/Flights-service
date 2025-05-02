@@ -1,9 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 
-const {serverConfig} =require('./config');
+const { serverConfig } =require('./config');
 const apiRoutes = require('./routes');
+const Logger = require('./config/logger-config');
 
 const app= express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 app.use('/api',apiRoutes);
 
