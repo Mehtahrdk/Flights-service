@@ -22,5 +22,15 @@ router
         AirplaneControllers.getAirplane);
 
 
+// api/v1/airplanes:id DELETE
+
+router
+     .delete('/:id',
+          AirplaneControllers.destroyAirplane);
+   
+
+        
+
+
 
 module.exports = router;
