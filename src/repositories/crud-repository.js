@@ -1,3 +1,4 @@
+const { StatusCodes }=require('http-status-codes');
 const { Logger }=require('../config');
 
 class crudRepository
@@ -24,49 +25,40 @@ async create(data)
 
 async destroy(data)
 {
-    try{
-
     const response=await this.model.destroy({
         where:{
             id:data
         }
     });
     return response;
-    }catch(error)
-    {
-        Logger.error('something went wrong in the crud repo : create');
-        throw error;
-    }
+    
 }
 
 async get(data)
 {
-    try{
+    
     const response=await this.model.findByPk(data);
-    return response;
-    }catch(error)
+
+    if(!response)
     {
-        Logger.error('something went wrong in the crud repo : create');
-        throw error;
+        throw new AppError('not able to find the resource',StatusCodes.NOT_FOUND);
     }
+    
+    return response;
+    
 }
 
-async getAll(data)
+async getAll()
 {
-    try{
-    const response=await this.model.findAll(data);
+    const response=await this.model.findAll();
     return response;
-    }catch(error)
-    {
-        Logger.error('something went wrong in the crud repo : create');
-        throw error;
-    }
+    
 }
 
 
 async update(id,data)
 {
-    try{
+   
     const response=await this.model.update(data,{
         where:{
             id: id
@@ -74,12 +66,6 @@ async update(id,data)
 
     });
     return response;
-    }catch(error)
-    {
-        Logger.error('something went wrong in the crud repo : create');
-        Logger.error(error);
-        throw error;
-    }
 }
 
 }
