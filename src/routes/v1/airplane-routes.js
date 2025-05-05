@@ -28,9 +28,4 @@ router
      .delete('/:id',
           AirplaneControllers.destroyAirplane);
    
-
-        
-
-
-
 module.exports = router;
