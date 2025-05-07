@@ -9,11 +9,10 @@ module.exports = {
       name:'city_fkey_constraint',
       fields:['CityId'],
       references:{
-        table:'cities',
+        model:'cities',
         field:'id'
       },
-      onUpdate:'CASCADE',
-      onDELETE:'CASCADE'
+      onDelete:'CASCADE'
 
     });
   },
