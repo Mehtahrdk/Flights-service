@@ -7,7 +7,7 @@ function validateCreateRequest(req,res,next)
     if(!req.body.modelNumber)
     {
         ErrorResponse.message='something went wrong while creating airplane';
-        ErrorResponse.error={explanation:'Model number not found in oncoming request in the correct form'};
+        ErrorResponse.error=new AppError(['Model number not found in oncoming request in the correct form']);
         return res
                .status(StatusCodes.BAD_REQUESTS)
                .json(ErrorResponse);
